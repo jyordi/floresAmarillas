@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="flowers.png" type="image/x-icon">
+    <title>Regalo Especial</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* Color de fondo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        .greetings {
+            font-size: 2.5em;
+            color: #4A4A4A;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .button {
+            margin-top: 20px;
+        }
+
+        .botones {
+            background-color: #72716e; 
+            border: none;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .botones:hover {
+            background-color: #FFC107; /* Color más oscuro al pasar el ratón */
+            transform: scale(1.05);
+        }
+
+        /* Estilos para la pantalla de mensaje */
+        .message-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .message-card {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeIn 0.5s;
+            max-width: 90%; /* Ancho máximo responsivo */
+            margin: 0 20px; /* Espaciado lateral */
+        }
+
+        .titulo {
+            font-size: 1.8em; /* Ajustado para ser más responsivo */
+            color: #4A4A4A;
+            margin: 0;
+            line-height: 1.5; /* Mayor separación entre líneas */
+        }
+
+        /* Animación de desvanecimiento */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .greetings {
+                font-size: 2em; /* Menor tamaño en pantallas pequeñas */
+            }
+
+            .description {
+                font-size: 1em; /* Ajustar el tamaño del texto */
+            }
+
+            .titulo {
+                font-size: 1.5em; /* Ajustar el tamaño del título */
+            }
+
+            .botones {
+                padding: 10px 20px; /* Ajustar el tamaño del botón */
+                font-size: 1em; /* Ajustar tamaño de fuente del botón */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="greetings">
+            <span>H</span>
+            <span>o</span>
+            <span>l</span>
+            <span>a</span>
+            <span>,</span>
+            <span>m</span>
+            <span>i</span>
+            <span>n</span>
+            <span>i</span>
+            <span>ñ</span>
+            <span>a</span>
+            <span>!</span>
+        </div>
+        <div class="description">
+            <span>Te tengo este regalo por ser la personita que más quiero en este mundo :)</span>
+        </div>
+        <div class="button">
+            <button class="botones" id="giftButton">CLICK AQUÍ</button>
+        </div>
+    </div>
+
+    <div class="message-screen" id="messageScreen">
+        <div class="message-card">
+            <h1 class="titulo">Estas flores amarillas son un reflejo de la alegría que traes a mi vida. <br> <br>
+                Gracias por iluminar mis días con tu presencia.</h1>
+            
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('giftButton').addEventListener('click', function () {
+            // Ocultar la pantalla principal
+            document.querySelector('.container').style.display = 'none';
+
+            // Mostrar la pantalla de mensaje
+            const messageScreen = document.getElementById('messageScreen');
+            messageScreen.style.display = 'flex';
+
+            // Redirigir después de 5 segundos
+            setTimeout(function () {
+                window.location.href = 'flower.html'; // Cambia esto a la URL de la siguiente pantalla
+            }, 5000); // 5000 ms = 5 segundos
+        });
+
+        // Cerrar el mensaje manualmente
+        document.getElementById('closeButton').addEventListener('click', function () {
+            document.getElementById('messageScreen').style.display = 'none';
+            document.querySelector('.container').style.display = 'flex'; // Volver a mostrar la pantalla principal
+        });
+    </script>
+</body>
+
+</html>
